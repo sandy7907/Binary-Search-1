@@ -7,13 +7,13 @@ class RotatedSortedArray {
             if(nums[mid] == target) return mid;
 
             if(nums[low] <= nums[mid]) { // LSA
-                if(nums[low] <= target && target <= nums[mid]) { // Target lies in left side of array
+                if(nums[low] <= target && target < nums[mid]) { // Target lies in left side of array
                     high = mid - 1;
                 } else {
                     low = mid + 1;
                 }
             } else { // RSA
-                if(nums[mid] <= target && target <= nums[high]) { // Target lies in right side of array
+                if(nums[mid] < target && target <= nums[high]) { // Target lies in right side of array
                     low = mid + 1;
                 } else {
                     high = mid - 1;
